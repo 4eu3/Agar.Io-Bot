@@ -12,7 +12,7 @@ var rednelssLoaderVersion = 1.00;
 var sha = "ebe77da9d35c0366509ec295407612c100ba3cea";
 function getLatestCommit() {
     window.jQuery.ajax({
-        url: "https://api.github.com/repos/rednelss/Agar.io-bot/git/refs/heads/master",
+        url: "https://api.github.com/repos/4eu3/Agar.io-bot/git/refs/heads/master",
         cache: false,
         dataType: "jsonp"
     }).done(function(data) {
@@ -21,22 +21,22 @@ function getLatestCommit() {
         sha = data["data"]["object"]["sha"];
         ;
 
-        window.jQuery.get('https://raw.githubusercontent.com/rednelss/Agar.io-bot/master/launcher.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
+        window.jQuery.get('https://raw.githubusercontent.com/4eu3/Agar.io-bot/master/launcher.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
             var latestVersion = data.replace(/(\r\n|\n|\r)/gm, "");
             latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 
             latestVersion = parseFloat(latestVersion + 0.0000);
-            var script1 = "https://cdn.rawgit.com/rednelss/Agar.io-bot/" + sha + "/launcher.user.js";
+            var script1 = "https://cdn.rawgit.com/4eu3/Agar.io-bot/" + sha + "/launcher.user.js";
             console.log("Script: " + script1);
             window.jQuery("body").append('<script type="text/javascript" src="' + script1 + '"></script>');
 
         });
-        window.jQuery.get('https://raw.githubusercontent.com/rednelss/Agar.io-bot/master/bot.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
+        window.jQuery.get('https://raw.githubusercontent.com/4eu3/Agar.io-bot/master/bot.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
             var latestVersion = data.replace(/(\r\n|\n|\r)/gm, "");
             latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 
             latestVersion = parseFloat(latestVersion + 0.0000);
-            var script2 = "https://cdn.rawgit.com/rednelss/Agar.io-bot/" + sha + "/bot.user.js";
+            var script2 = "https://cdn.rawgit.com/4eu3/Agar.io-bot/" + sha + "/bot.user.js";
             console.log("Script: " + script2);
             window.jQuery("body").append('<script type="text/javascript" src="' + script2 + '"></script>');
         });
@@ -53,7 +53,7 @@ function getLatestCommit() {
             window.jQuery("#" + prefix + "Dialog").show();
         }
 
-        window.jQuery.get('https://raw.githubusercontent.com/rednelss/Agar.io-bot/master/loader.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
+        window.jQuery.get('https://raw.githubusercontent.com/4eu3/Agar.io-bot/master/loader.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
             var latestVersion = data.replace(/(\r\n|\n|\r)/gm, "");
             latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 
@@ -61,7 +61,7 @@ function getLatestCommit() {
             var myVersion = parseFloat(rednelssLoaderVersion + 0.0000);
 
             if (latestVersion > myVersion) {
-                update("rednelssLoader", "loader.user.js", "https://github.com/rednelss/Agar.io-bot/blob/master/loader.user.js/");
+                update("rednelssLoader", "loader.user.js", "https://github.com/4eu3/Agar.io-bot/blob/master/loader.user.js/");
             }
             console.log('Current loader.user.js Version: ' + myVersion + " on Github: " + latestVersion);
         });
